@@ -41,11 +41,11 @@ class All {
     // початку року до цієї дати.Ви повинні врахувати, що у лютому може бути різна кількість дат.
     public static long exercise25(String dateString) throws ParseException {
 
-        var formatter = new SimpleDateFormat("dd.MM.yy");
-        var date = formatter.parse(dateString);
+        var format = new SimpleDateFormat("dd.MM.yy");
+        var date = format.parse(dateString);
 
         var beginOfYearString = "01.01." + LocalDate.now().getYear();
-        var beginOfYear = formatter.parse(beginOfYearString);
+        var beginOfYear = format.parse(beginOfYearString);
         var difference = Math.abs(date.getTime() - beginOfYear.getTime());
 
         return TimeUnit.DAYS.convert(difference, TimeUnit.MILLISECONDS);
